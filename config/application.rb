@@ -23,3 +23,6 @@ module PaywallSass
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+
+Rails.application.config.middleware.insert_before 'Warden::Manager', 'Apartment::Elevators::Subdomain'

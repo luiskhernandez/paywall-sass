@@ -1,2 +1,38 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Paywall Service</h1>
+    <p>The Secure, Easy Way to Offer Paid Access to Premium Content</p>
+    <p>
+      <% if current_account %>
+        <%= link_to 'Sign out', destroy_account_session_path, class:'btn btn-primary btn-lg', method: :delete %>
+      <% else %>
+        <%= link_to 'Get stared', new_account_registration_path, class:'btn btn-primary btn-lg' %>
+      <% end %>
+    </p>
+  </div>
+</div>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row text-center">
+    <div class="col-md-4">
+      <h2>Create Profile</h2>
+      <p>Any person or group can setup a profile in just seconds. There are no startup fees,
+        so let’s get going!</p>
+      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Post Content</h2>
+      <p>Add content to your profile - audio, video, photos, documents, and more. Update your content whenever you want.</p>
+      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Set your Price</h2>
+      <p>Set a monthly price for people to access your profile content. Tell your friends and followers… and we handle the rest!</p>
+      <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>© <%= Time.current.year %> Company, Inc.</p>
+  </footer>
+</div>

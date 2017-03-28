@@ -5,22 +5,33 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= link_to 'Home', root_path %>
-    <div>
-      <% if current_account %>
-        <p> Hola, <%= current_account.name %> </p>
-        <%= link_to 'sign out', destroy_account_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'sign in', new_account_session_path %>
-        <%= link_to 'sign up', new_account_registration_path %>
-      <% end %>
-    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'PayWall', root_path, class:'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <%= bootstrap_form_for(:account, url: new_account_session_path, layout: :inline, html: { class: 'navbar-form navbar-right' } ) do |f| %>
+            <%= f.email_field :email, hide_label: true, placeholder: 'Email' %>
+            <%= f.password_field :password, hide_label: true, placeholder: 'Password' %>
+            <%= f.submit "Sign in", class: "btn btn-success" %>
+          <% end %>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
     <%= yield %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
