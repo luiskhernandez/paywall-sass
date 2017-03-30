@@ -3,9 +3,7 @@
     <h1>Paywall Service</h1>
     <p>The Secure, Easy Way to Offer Paid Access to Premium Content</p>
     <p>
-      <% if current_account %>
-        <%= link_to 'Sign out', destroy_account_session_path, class:'btn btn-primary btn-lg', method: :delete %>
-      <% else %>
+      <% unless current_account %>
         <%= link_to 'Get stared', new_account_registration_path, class:'btn btn-primary btn-lg' %>
       <% end %>
     </p>
