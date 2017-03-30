@@ -5,7 +5,7 @@ class Account < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable,
     :confirmable, :lockable
 
-  validates :domain, uniqueness: true
+  validates :domain, uniqueness: true, if: 'domain.present?'
   validates :subdomain, uniqueness: true
   validates :name, uniqueness: true
 

@@ -32,7 +32,7 @@ class DeviseCreateAccounts < ActiveRecord::Migration[5.0]
        #custom atributes
        t.string   :name,   null: false
        t.string   :subdomain, null: false
-       t.string   :domain, null: false
+       t.string   :domain
 
 
       t.timestamps null: false
@@ -43,7 +43,7 @@ class DeviseCreateAccounts < ActiveRecord::Migration[5.0]
     add_index :accounts, :confirmation_token,   unique: true
     add_index :accounts, :unlock_token,         unique: true
     add_index :accounts, :subdomain,            unique: true
-    add_index :accounts, :domain,               unique: true
+    add_index :accounts, :domain
     add_index :accounts, :name,                 unique: true
   end
 end

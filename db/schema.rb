@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20170326160612) do
     t.datetime "locked_at"
     t.string   "name",                                null: false
     t.string   "subdomain",                           null: false
-    t.string   "domain",                              null: false
+    t.string   "domain"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_accounts_on_confirmation_token", unique: true, using: :btree
-    t.index ["domain"], name: "index_accounts_on_domain", unique: true, using: :btree
+    t.index ["domain"], name: "index_accounts_on_domain", using: :btree
     t.index ["email"], name: "index_accounts_on_email", unique: true, using: :btree
     t.index ["name"], name: "index_accounts_on_name", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true, using: :btree
