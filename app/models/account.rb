@@ -3,7 +3,8 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable,
-    :confirmable, :lockable
+    :lockable
+  devise :confirmable, allow_unconfirmed_access_for: 1.month
 
   validates :domain, uniqueness: true, if: 'domain.present?'
   validates :subdomain, uniqueness: true
